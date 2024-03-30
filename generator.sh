@@ -46,7 +46,7 @@ cat <<EOF > package.json
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "build":"tsc"
+    "build":"tsc",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts"
   },
