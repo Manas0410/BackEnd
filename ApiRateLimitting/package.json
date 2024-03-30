@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "build":"tsc",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon src/server.ts"
+    "dev": "nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +19,8 @@
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "express-rate-limit": "^7.2.0"
   }
 }
