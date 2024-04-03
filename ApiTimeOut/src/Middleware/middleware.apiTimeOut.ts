@@ -1,12 +1,11 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 
 const ApiTimeOutMiddleWare = (time: number | undefined) => {
-  return (req: Request, res: Response, next: () => void) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     const timer = setTimeout(() => {
       if (!res.headersSent) {
-        res.status(503).send("api timeout");
+        res.status(503).send("API timeout");
       }
-      return;
     }, time);
 
     res.on("finish", () => {
