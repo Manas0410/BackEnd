@@ -11,7 +11,7 @@ const server: () => void = () => {
       res.status(200).send("api is working");
     });
 
-    app.use(ApiTimeOutMiddleWare(100));
+    // app.use(ApiTimeOutMiddleWare(100));
     app.use("/timeOutApi", route);
 
     app.listen(port, () => {

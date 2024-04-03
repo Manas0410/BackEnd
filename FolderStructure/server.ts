@@ -11,6 +11,7 @@ const server: () => void = () => {
     });
 
     app.use("/todoData", todoRoute);
+
     app.listen(port, () => {
       console.log("app is running on http://localhost:3000");
     });
