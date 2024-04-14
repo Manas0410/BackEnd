@@ -1,9 +1,8 @@
 import express from "express";
 import { connectToMongoDb } from "./Connection/connection";
 import NoteRouter from "./route";
-// import todoRoute from "./src/features/TODOs/todos.routes";
 
-const server: () => void = async () => {
+const server = async (): Promise<void> => {
   try {
     await connectToMongoDb();
 
@@ -18,13 +17,11 @@ const server: () => void = async () => {
 
     app.use("/note", NoteRouter);
 
-    // app.use("/todoData", todoRoute);
-
     app.listen(port, () => {
       console.log("app is running on http://localhost:3000");
     });
-  } catch (err) {
-    console.log(err);
+  } catch (err: any) {
+    console.error(err);
   }
 };
 
