@@ -12,7 +12,7 @@ const ApiTimeOutMiddleWare = (time: number | undefined) => {
       clearTimeout(timer);
     });
 
-    // next();
+    next();
   };
 };
 export default ApiTimeOutMiddleWare;
