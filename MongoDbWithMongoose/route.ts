@@ -22,4 +22,18 @@ NoteRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
+NoteRouter.get("/", async (req: Request, res: Response) => {
+  try {
+    const data = await NoteDataModel.find({ isActive: true });
+    res.status(201).send(data);
+  } catch (err: any) {
+    console.error("Err: ", err);
+
+    res.status(500).send({
+      data: {},
+      meta: { message: "Unable to take your request. Please try later" },
+    });
+  }
+});
+
 export default NoteRouter;
