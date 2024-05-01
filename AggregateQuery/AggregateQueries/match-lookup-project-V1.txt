@@ -1,0 +1,30 @@
+to get details of user who matches orderId
+
+
+
+db.order.aggregate([
+  {
+    $match: {
+      orderId: "FK-101",
+      state: "ordered",
+    },
+  },
+  {
+    $lookup: {
+      from: "user",
+      localField: "buyerId",
+      foreignField: "userId",
+      as: "userInfo",
+    },
+  },
+  {
+    $project: {
+      orderId: true,
+      buyerId: true,
+      description: "$state",
+      userName: "$userInfo.name",
+      productName: { $arrayElemAt: ["$products.name", 0] },
+    },
+  },
+]);
+

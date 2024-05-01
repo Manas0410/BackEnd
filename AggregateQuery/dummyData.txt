@@ -1,0 +1,60 @@
+db.order.insertMany([
+  {
+    _id: "1",
+    orderId: "FK-101",
+    buyerId: "432",
+    products: [
+      { id: "123", price: "234", name: "XYZ" },
+      { id: "124", price: "1002", name: "ABC" }
+    ],
+    state: "ordered",
+  },
+  {
+    _id: "2",
+    orderId: "FK-102",
+    buyerId: "433",
+    products: [
+      { id: "125", price: "400", name: "PQR" },
+      { id: "126", price: "800", name: "LMN" }
+    ],
+    state: "ordered"
+  },
+  {
+    _id: "20",
+    orderId: "FK-120",
+    buyerId: "435",
+    products: [
+      { id: "150", price: "600", name: "OPQ" },
+      { id: "151", price: "1200", name: "EFG" }
+    ],
+    state: "delivered"
+  }
+]);
+
+
+
+
+db.users.insertMany([
+  {
+    _id: "1",
+    userId: "432",
+    name: "Ritesh Malviya",
+    phone: "987654567",
+    email: "ritesh.m@google.com"
+  },
+  {
+    _id: "2",
+    userId: "433",
+    name: "Sanskrati Agrawal",
+    phone: "987654565",
+    email: "sanskrati.agr@google.com"
+  },
+  {
+    _id: "20",
+    userId: "435",
+    name: "Manas Srivastava",
+    phone: "987654565",
+    email: "manas.sri201@google.com"
+  }
+]);
+
