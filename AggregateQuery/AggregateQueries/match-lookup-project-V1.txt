@@ -28,3 +28,27 @@ db.order.aggregate([
   },
 ]);
 
+
+
+
+UserInfo.name
+
+db.orders.aggregate([{$match: {state: "ordered"}},{$lookup: {from: "users",localField: "buyerId",foreignField: "userId",as: "UserInfo"}},{$project :{_id : 0,state:1,username: "$UserInfo.name"}}])
+[
+  { state: 'ordered', username: [ 'Ritesh Malviya' ] },
+  { state: 'ordered', username: [ 'Sanskrati Agrawal' ] }
+]
+
+
+first
+
+aggregaettest> db.orders.aggregate([{$match: {state: "ordered"}},{$lookup: {from: "users",localField: "buyerId",foreignField: "userId",as: "UserInfo"}},{$project :{_id : 0,state:1,username:{$first:"$UserInfo.name"}}}])
+[
+  { state: 'ordered', username: 'Ritesh Malviya' },
+  { state: 'ordered', username: 'Sanskrati Agrawal' }
+]
+
+
+arrayElemAt:
+
+ db.orders.aggregate([{$match: {state: "ordered"}},{$lookup: {from: "users",localField: "buyerId",foreignField: "userId",as: "UserInfo"}},{$project :{_id : 0,state:1,username:{$first:"$UserInfo.name"},projectName: { $arrayElemAt: ["$products.name", 0] }}}])
