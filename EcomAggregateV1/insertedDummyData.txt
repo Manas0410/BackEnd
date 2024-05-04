@@ -1,0 +1,191 @@
+#######users
+
+db.users.insertMany([
+    {
+        "userId": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "address": "123 Main St, Anytown, USA"
+    },
+    {
+        "userId": 2,
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "address": "456 Oak St, Anytown, USA"
+    },
+    {
+        "userId": 3,
+        "name": "Alice Johnson",
+        "email": "alice@example.com",
+        "address": "789 Elm St, Anytown, USA"
+    },
+    {
+        "userId": 4,
+        "name": "Bob Brown",
+        "email": "bob@example.com",
+        "address": "101 Pine St, Anytown, USA"
+    },
+    {
+        "userId": 5,
+        "name": "Emily Davis",
+        "email": "emily@example.com",
+        "address": "202 Maple St, Anytown, USA"
+    }
+])
+
+
+######products
+
+db.products.insertMany([
+    {
+        "productId": "101",
+        "name": "Smartphone",
+        "price": 500,
+        "description": "A powerful smartphone with high-resolution display."
+    },
+    {
+        "productId": "102",
+        "name": "Laptop",
+        "price": 1000,
+        "description": "A sleek and powerful laptop for all your computing needs."
+    },
+    {
+        "productId": "103",
+        "name": "Headphones",
+        "price": 50,
+        "description": "High-quality headphones for immersive audio experience."
+    },
+    {
+        "productId": "104",
+        "name": "Smartwatch",
+        "price": 200,
+        "description": "Stay connected with this stylish and feature-packed smartwatch."
+    },
+    {
+        "productId": "105",
+        "name": "Wireless Earbuds",
+        "price": 80,
+        "description": "Enjoy music on the go with these comfortable wireless earbuds."
+    }
+])
+
+
+
+#####orders
+
+db.orders.insertMany([
+    {
+        "orderId": "201",
+        "userId": "1",
+        "products": [
+            {
+                "productId": "101",
+                "quantity": 2
+            },
+            {
+                "productId": "102",
+                "quantity": 1
+            }
+        ],
+        "total": 2000,
+        "status": "shipped"
+    },
+    {
+        "orderId": "202",
+        "userId": "2",
+        "products": [
+            {
+                "productId": "103",
+                "quantity": 3
+            }
+        ],
+        "total": 150,
+        "status": "delivered"
+    },
+    {
+        "orderId": "203",
+        "userId": "3",
+        "products": [
+            {
+                "productId": "101",
+                "quantity": 1
+            },
+            {
+                "productId": "105",
+                "quantity": 2
+            }
+        ],
+        "total": 660,
+        "status": "processing"
+    },
+    {
+        "orderId": "204",
+        "userId": "4",
+        "products": [
+            {
+                "productId": "102",
+                "quantity": 1
+            }
+        ],
+        "total": 1000,
+        "status": "pending"
+    },
+    {
+        "orderId": "205",
+        "userId": "5",
+        "products": [
+            {
+                "productId": "104",
+                "quantity": 2
+            }
+        ],
+        "total": 400,
+        "status": "processing"
+    }
+])
+
+
+#### transactions
+
+db.transactions.insertMany([
+    {
+        "transactionId": "301",
+        "orderId": "201",
+        "amount": 2000,
+        "status": "success",
+        "paymentMethod": "credit_card",
+        "transactionDate": ISODate("2024-05-03T12:00:00Z")
+    },
+    {
+        "transactionId": "302",
+        "orderId": "202",
+        "amount": 150,
+        "status": "success",
+        "paymentMethod": "paypal",
+        "transactionDate": ISODate("2024-05-04T10:30:00Z")
+    },
+    {
+        "transactionId": "303",
+        "orderId": "203",
+        "amount": 660,
+        "status": "success",
+        "paymentMethod": "credit_card",
+        "transactionDate": ISODate("2024-05-05T15:45:00Z")
+    },
+    {
+        "transactionId": "304",
+        "orderId": "204",
+        "amount": 1000,
+        "status": "pending",
+        "paymentMethod": "cash_on_delivery",
+        "transactionDate": ISODate("2024-05-06T08:00:00Z")
+    },
+    {
+        "transactionId": "305",
+        "orderId": "205",
+        "amount": 400,
+        "status": "success",
+        "paymentMethod": "paypal",
+        "transactionDate": ISODate("2024-05-07T11:20:00Z")
+    }
+])
