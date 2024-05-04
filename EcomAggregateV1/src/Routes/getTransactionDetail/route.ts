@@ -3,6 +3,6 @@ import transactionDetailControler from "./controller";
 
 const transactionDetailRouter = express.Router();
 
-transactionDetailRouter.get("/", transactionDetailControler);
+transactionDetailRouter.get("/:transactionId", transactionDetailControler);
 
 export default transactionDetailRouter;

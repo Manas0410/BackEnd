@@ -3,6 +3,6 @@ import orderDetailController from "../getOrderDetail/controller";
 
 const orderDetailRouter = express.Router();
 
-orderDetailRouter.get("/", orderDetailController);
+orderDetailRouter.get("/:orderId", orderDetailController);
 
 export default orderDetailRouter;
