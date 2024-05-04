@@ -3,6 +3,6 @@ import placeOrderController from "./controller";
 
 const placeOrderRouter = express.Router();
 
-placeOrderRouter.get("/:orderId", placeOrderController);
+placeOrderRouter.post("/:orderId", placeOrderController);
 
 export default placeOrderRouter;
