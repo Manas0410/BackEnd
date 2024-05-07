@@ -18,17 +18,24 @@ mkdir src
 cat <<EOF > src/server.ts
 import express, { Request, Response } from "express";
 
-const app = express();
-const port: number = 3000;
-app.use(express.json());
+(async (): Promise<void> => {
+  try {
+    const app = express();
+    const port = 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.status(200).send("api is working");
-});
+    app.use(express.json());
 
-app.listen(port, () => {
-  console.log("app is running on http://localhost:3000");
-});
+    app.get("/", (req: Request, res: Response) => {
+      res.status(200).send("api is working");
+    });
+
+    app.listen(port, () => {
+      console.log("app is running on http://localhost:3000");
+    });
+  } catch (err: any) {
+    console.error(err);
+  }
+})();
 
 EOF
 

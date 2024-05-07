@@ -4,7 +4,7 @@ import orderDetailRouter from "./Routes/getOrderDetail/route";
 import { connectToMongoDb } from "../Utils/connection";
 import productDetailRouter from "./Routes/getProductDetail/route";
 
-const server = async (): Promise<void> => {
+(async (): Promise<void> => {
   try {
     await connectToMongoDb();
 
@@ -27,6 +27,4 @@ const server = async (): Promise<void> => {
   } catch (err: any) {
     console.error(err);
   }
-};
-
-server();
+})();
