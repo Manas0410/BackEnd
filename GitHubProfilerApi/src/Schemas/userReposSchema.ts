@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface Repository {
+interface Repository extends Document {
   id: number;
   name: string;
   full_name: string;
@@ -11,10 +11,6 @@ interface Repository {
   };
   description: string | null;
   visibility: string;
-}
-
-interface Record extends Document {
-  repositories: Repository[][];
 }
 
 const repositorySchema: Schema = new Schema({
@@ -30,10 +26,6 @@ const repositorySchema: Schema = new Schema({
   visibility: { type: String, required: true },
 });
 
-const recordSchema: Schema = new Schema({
-  repositories: { type: [[repositorySchema]], required: true },
-});
-
-const RepositoryModel = mongoose.model<Record>("repos", recordSchema);
+const RepositoryModel = mongoose.model<Repository>("repos", repositorySchema);
 
 export default RepositoryModel;

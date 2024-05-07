@@ -20,8 +20,6 @@ export const fetchUserProfile = async (
       `https://api.github.com/users/${username}`
     );
 
-    if (response.status === 404) return false;
-
     const userData = response.data;
 
     // Map the response data to the desired format

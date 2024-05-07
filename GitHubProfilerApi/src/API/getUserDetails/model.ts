@@ -18,14 +18,21 @@ export const runMongoQuery = async (userName: string) => {
     {
       $project: {
         _id: 0,
-        "Repositories.id": 1,
-        "Repositories.name": 1,
-        "Repositories.full_name": 1,
-        "Repositories.private": 1,
-        "Repositories.owner.login": 1,
-        "Repositories.owner.id": 1,
-        "Repositories.description": 1,
-        "Repositories.visibility": 1,
+        id: 1,
+        login: 1,
+        name: 1,
+        location: 1,
+        bio: 1,
+        repositories: {
+          $map: {
+            input: "$Repositories",
+            as: "repo",
+            in: {
+              name: "$$repo.name",
+              visibility: "$$repo.visibility",
+            },
+          },
+        },
       },
     },
   ]);

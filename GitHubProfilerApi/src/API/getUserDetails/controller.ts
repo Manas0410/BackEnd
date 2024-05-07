@@ -11,19 +11,14 @@ const Controller = async (req: Request, res: Response) => {
     const { userName }: { userName: string } = req.params;
 
     const isDataPresent = await UserModel.find({ login: userName });
-    console.log(isDataPresent, "isdatapresent");
 
     if (isDataPresent.length > 0) {
-      console.log("inside if");
       // retrieve and send data from mongo
       const dataFromMongo = await runMongoQuery(userName);
 
       res.status(200).json(dataFromMongo);
     } else {
-      console.log("inside else");
-
       // retrieve and send data from github
-      console.log(userName, "userrepo");
       const userData = await fetchUserProfile(userName);
       const repositoryData = await fetchUserRepos(userName);
 
@@ -33,10 +28,12 @@ const Controller = async (req: Request, res: Response) => {
       }
 
       const user = new UserModel(userData);
-      const repos = new RepositoryModel(repositoryData);
-
       await user.save();
-      await repos.save();
+
+      repositoryData.map(async (repo) => {
+        const repos = new RepositoryModel(repo);
+        await repos.save();
+      });
 
       const dataFromMongo = await runMongoQuery(userName);
       res.status(200).json(dataFromMongo);
