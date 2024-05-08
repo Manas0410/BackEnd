@@ -3,7 +3,7 @@ import UserModel from "../../Schemas/userDataSchema";
 import { fetchUserProfile } from "../../utils/fetchGithubData/fetchUserDetailFromGithub";
 import fetchUserRepos from "../../utils/fetchGithubData/fetchUserReposFromGithub";
 import RepositoryModel from "../../Schemas/userReposSchema";
-import { runMongoQuery } from "./model";
+import { runMongoQuery } from "./query";
 
 const Controller = async (req: Request, res: Response) => {
   try {

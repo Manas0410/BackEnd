@@ -2,7 +2,6 @@ import express, { Request, Response } from "express";
 import { connectToMongoDb } from "./src/utils/connection";
 import userDetailRouter from "./src/API/getUserDetails/router";
 import limiter from "./src/utils/rateLimiter";
-import { fetchUserProfile } from "./src/utils/fetchGithubData/fetchUserDetailFromGithub";
 import { port } from "./src/Configuration/config";
 
 (async (): Promise<void> => {
@@ -27,3 +26,5 @@ import { port } from "./src/Configuration/config";
     console.error(err, "this is error");
   }
 })();
+
+// http://localhost:3000/githubprofile/xDAnkit
