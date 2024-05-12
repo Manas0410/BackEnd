@@ -10,6 +10,8 @@ app.get(`/`, (req, res) => {
 
 const startServer = () => {
   try {
+    console.log(process.env.NAME);
+
     app.listen(port, () => {
       console.log(`Express server started at port ${port}`);
     });
@@ -19,3 +21,4 @@ const startServer = () => {
 };
 
 startServer();
+//  node --env-file=.env server.js
