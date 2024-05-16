@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "exec_mode": "cluster",
+      "instances": 2,
+      "script": "pnpm",
+      "args": ["dev"],
+      "name": "server",
+      "interpreter": "bash"
+    }
+  ]
+}

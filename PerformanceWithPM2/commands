@@ -1,0 +1,10 @@
+npx autocannon -c 100 -d 5 -p 10 
+pm2 start index.js -i max
+
+pm2 ls
+pm2 stop all
+pm2 delete all | number
+
+pm2 start ecosystem.config.js --only NodeServer
+
+pm2 start pm2.json  

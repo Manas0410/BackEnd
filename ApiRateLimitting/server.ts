@@ -1,7 +1,7 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
-import TotalRateLimitRoute from "./Routes/TotalApiLimitRoute";
-import keyBasedRateLimitRoute from "./Routes/KeyBasedApiLimitRoute";
+import TotalRateLimitRoute from "./src/Routes/TotalApiLimitRoute";
+import keyBasedRateLimitRoute from "./src/Routes/KeyBasedApiLimitRoute";
 
 const app = express();
 app.use(express.json());
